@@ -1,0 +1,25 @@
+# Get CUDA-10.0 on the path.
+source repoEnv # /scratch/cluster/ishann/research/finding-everything/repoEnv
+
+# Create a new conda env.
+conda create -n open-mmlab python=3.7 -y
+source activate open-mmlab
+
+# Install some basic packages.
+conda install pip
+conda install ipython
+conda install -c pytorch pytorch torchvision nccl2 -y
+conda install cython -y
+conda install yaml -y
+
+# Get mmdetection.
+git clone https://github.com/open-mmlab/mmdetection.git
+cd mmdetection
+pip install -v -e . 2>&1 | tee log-install.txt
+
+# Create a symlink for data.
+ln -s /scratch/cluster/ishann/data /scratch/cluster/ishann/research/finding-everything/mmdetection/data
+
+
+
+

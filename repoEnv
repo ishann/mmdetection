@@ -1,0 +1,7 @@
+# Add mmdet to PYTHONPATH
+export PYTHONPATH=`pwd`:$PYTHONPATH
+
+# Run the Python setup for mmdet.
+python setup.py develop
+
+
